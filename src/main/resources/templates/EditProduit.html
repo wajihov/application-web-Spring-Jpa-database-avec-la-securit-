@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8" />
+<title>Ajouter Produit</title>
+<link rel="stylesheet" href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" type="text/css" />
+<link rel="stylesheet" href="../static/css/myStyle.css"
+	th:href="@{css/myStyle.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="spacer col-md-6 col-md-offset-3 col-xs-12 ">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Saisie de produit</div>
+				<div class="panel-body">
+					<form th:action="@{save}" method="post">
+						<div class="form-group">
+							<label class="control-label">Id Produit : </label> <input
+								class="form-control" type="text" name="id"
+								th:value="${produit.id}" /> <span class="red"
+								th:errors=${produit.id}></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Désignation : </label> <input
+								class="form-control" type="text" name="designation"
+								th:value="${produit.designation}" /> <span class="red"
+								th:errors=${produit.designation}></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Prix : </label> <input
+								class="form-control" type="text" name="prix"
+								th:value="${produit.prix}" /> <span th:errors=${produit.prix}
+								class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Quantité : </label> <input
+								class="form-control" type="text" name="quantite"
+								th:value="${produit.quantite}" /> <span
+								th:errors=${produit.quantite}></span>
+						</div>
+						<div>
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
